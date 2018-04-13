@@ -16,6 +16,21 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul> -->
+
+    <!-- bootstrap vue tabs code -->
+    <!-- 
+    <b-card no-body>
+      <b-tabs card>
+        <b-tab title="Tab 1" active>
+          Tab Contents 1
+        </b-tab>
+        <b-tab title="Tab 2">
+          Tab Contents 2
+        </b-tab>
+      </b-tabs>
+    </b-card> 
+    -->
+
     <app-bsvue></app-bsvue>
 
   </div>
