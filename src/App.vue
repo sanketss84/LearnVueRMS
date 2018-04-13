@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="">
     <!-- <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
@@ -31,12 +31,32 @@
     </b-card> 
     -->
 
-    <app-bsvue></app-bsvue>
+    <app-bvheader></app-bvheader>
+    <b-card no-body>
+      <b-tabs pills card vertical>
+
+        <b-tab title="BS-Vue" active>          
+          <app-bsvue></app-bsvue>
+        </b-tab>
+
+        <b-tab title="Tab 2">
+          Tab Contents 2
+        </b-tab>
+
+        <b-tab title="Tab 3">
+          Tab Contents 3
+        </b-tab>
+
+      </b-tabs>
+    </b-card>    
+    <app-bvfooter></app-bvfooter>
 
   </div>
 </template>
 
 <script>
+import BVHeader from './components/bootstrapvue/BVHeader.vue';
+import BVFooter from './components/bootstrapvue/BVFooter.vue';
 import bsvue from './components/bootstrapvue/BootstrapVueLearn.vue';
 
 export default {
@@ -47,7 +67,9 @@ export default {
     }
   },
   components : {
-    'app-bsvue' : bsvue
+    'app-bvheader' : BVHeader,
+    'app-bsvue' : bsvue,
+    'app-bvfooter' : BVFooter
   }
 }
 </script>

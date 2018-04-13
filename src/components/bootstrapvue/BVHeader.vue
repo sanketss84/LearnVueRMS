@@ -5,7 +5,7 @@
         <!-- set type as dark or light for either a dark or light background -->
         <!-- variant : colors can be primary, success, info, warning, danger, dark, or light. -->
          <b-navbar type="dark" variant="dark" toggleable>
-            <b-navbar-brand href="#"><img src="https://placekitten.com/g/30/30" alt="BV"> BootstrapVue</b-navbar-brand>
+            <b-navbar-brand href="#"><img src="https://placekitten.com/g/30/30" alt="BV"> Vue RMS Learn</b-navbar-brand>
             <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
             <b-collapse is-nav id="nav_dropdown_collapse">
 

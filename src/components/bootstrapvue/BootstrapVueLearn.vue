@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-      <app-bvheader></app-bvheader>
+    <div>
+      <!-- <app-bvheader></app-bvheader> -->
 
       <b-card no-body>
         <b-tabs card>
@@ -16,22 +16,22 @@
         </b-tabs>
       </b-card>
 
-      <app-bvfooter></app-bvfooter>
+      <!-- <app-bvfooter></app-bvfooter> -->
     </div>
 </template>
 
 <script>
-import BVHeader from './BVHeader.vue';
+// import BVHeader from './BVHeader.vue';
 import BVCollapse from './BVCollapaseAccordian.vue';
 import BVModal from './BVModal.vue';
-import BVFooter from './BVFooter.vue';
+// import BVFooter from './BVFooter.vue';
 
 export default {
   components : {
-    'app-bvheader' : BVHeader,
+    // 'app-bvheader' : BVHeader,
     'app-bvcollapse': BVCollapse,
     'app-bvmodal' : BVModal,
-    'app-bvfooter' : BVFooter
+    // 'app-bvfooter' : BVFooter
   },
   data (){
     return {

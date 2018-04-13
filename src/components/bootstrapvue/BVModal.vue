@@ -7,7 +7,7 @@
             <b-tab title="basic" active>
                  <div>
                     <br>
-                    <p>Modal triggered using v-b-modal.idOfTheb-modal using button and a href</p>
+                    <code>Modal triggered using v-b-modal.idOfTheb-modal using button and a href</code> <br> <br>
                     <!-- Using modifiers -->
                     <b-btn v-b-modal.myModal>Show Modal</b-btn>
                     <a href="#"  v-b-modal.myModal>Show Modal</a>
