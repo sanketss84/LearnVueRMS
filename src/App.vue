@@ -39,12 +39,12 @@
           <app-bvue></app-bvue>
         </b-tab>
 
-        <b-tab title="Bootstrap Vue" active>          
+        <b-tab title="Bootstrap Vue">          
           <app-bsvue></app-bsvue>
         </b-tab>
 
-        <b-tab title="Tab 3">
-          Tab Contents 3
+        <b-tab title="VeeValidate" active>
+          <app-veeval></app-veeval>
         </b-tab>
 
       </b-tabs>
@@ -60,6 +60,7 @@ import BVFooter from './components/bootstrapvue/BVFooter.vue';
 
 import bsvue from './components/bootstrapvue/BootstrapVueLearn.vue';
 import bvue from './components/bootstrap/BootstrapLearn.vue';
+import veeval from './components/veevalidate/VeeValidateLearn.vue';
 
 export default {
   name: 'app',
@@ -72,6 +73,7 @@ export default {
     'app-bvheader' : BVHeader,
     'app-bsvue' : bsvue,
     'app-bvue' : bvue,
+    'app-veeval' : veeval,
     'app-bvfooter' : BVFooter
   }
 }
