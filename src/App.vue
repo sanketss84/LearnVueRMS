@@ -35,12 +35,12 @@
     <b-card no-body>
       <b-tabs pills card vertical>
 
-        <b-tab title="BS-Vue" active>          
-          <app-bsvue></app-bsvue>
+        <b-tab title="Bootstrap 4">
+          <app-bvue></app-bvue>
         </b-tab>
 
-        <b-tab title="Tab 2">
-          Tab Contents 2
+        <b-tab title="Bootstrap Vue" active>          
+          <app-bsvue></app-bsvue>
         </b-tab>
 
         <b-tab title="Tab 3">
@@ -57,7 +57,9 @@
 <script>
 import BVHeader from './components/bootstrapvue/BVHeader.vue';
 import BVFooter from './components/bootstrapvue/BVFooter.vue';
+
 import bsvue from './components/bootstrapvue/BootstrapVueLearn.vue';
+import bvue from './components/bootstrap/BootstrapLearn.vue';
 
 export default {
   name: 'app',
@@ -69,6 +71,7 @@ export default {
   components : {
     'app-bvheader' : BVHeader,
     'app-bsvue' : bsvue,
+    'app-bvue' : bvue,
     'app-bvfooter' : BVFooter
   }
 }
