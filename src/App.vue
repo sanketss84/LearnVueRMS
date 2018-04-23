@@ -43,8 +43,13 @@
           <app-bsvue></app-bsvue>
         </b-tab>
 
-        <b-tab title="VeeValidate" active>
+        <b-tab title="VeeValidate">
           <app-veeval></app-veeval>
+        </b-tab>
+        
+        <!-- RMS  -->
+        <b-tab title="RMS" active>
+          <app-rms-recipepage></app-rms-recipepage>
         </b-tab>
 
       </b-tabs>
@@ -62,6 +67,9 @@ import bsvue from './components/bootstrapvue/BootstrapVueLearn.vue';
 import bvue from './components/bootstrap/BootstrapLearn.vue';
 import veeval from './components/veevalidate/VeeValidateLearn.vue';
 
+//RMS 
+import RecipePage from './components/rms/RecipePage/RecipePage.vue';
+
 export default {
   name: 'app',
   data () {
@@ -74,6 +82,7 @@ export default {
     'app-bsvue' : bsvue,
     'app-bvue' : bvue,
     'app-veeval' : veeval,
+    'app-rms-recipepage' : RecipePage,
     'app-bvfooter' : BVFooter
   }
 }
