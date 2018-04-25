@@ -3,8 +3,8 @@
         <p>Recipe Page</p>
         <rms-recipe-createmodal></rms-recipe-createmodal>
         <rms-recipe-copymodal></rms-recipe-copymodal>
-        <rms-recipe-detail></rms-recipe-detail>
-        <rms-recipe-method></rms-recipe-method>
+        <!-- <rms-recipe-detail></rms-recipe-detail>
+        <rms-recipe-method></rms-recipe-method> -->
     </div>
 </template>
 
