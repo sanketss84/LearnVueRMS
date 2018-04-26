@@ -29,6 +29,8 @@
 
 <!--<script  src="./RecipeCreateModal.js">-->
 <script>
+    // import { mapMutations } from 'vuex';
+
     export default {
         data() {
             return {
@@ -63,23 +65,47 @@
         },
         methods : {
             okButtonHandler () {
-                console.log(this.recipeCreateModel.selectedProjectId);   
-                console.log(this.recipeCreateModel.selectedChapterId);
+                // console.log(this.recipeCreateModel.selectedProjectId);   
+                // console.log(this.recipeCreateModel.selectedChapterId);
+                // console.log(this.$store.state.recipeStore.recipeCreateModalTriggered);
+                
+                // console.log(this.$store.state.recipeStore.recipeCreateModel.triggered);
+                // this.$store.state.recipeStore.recipeCreateModel.triggered = true;
+                // console.log(this.$store.state.recipeStore.recipeCreateModel.triggered);
+
+                //set recipeStore values
+                //this.$store.state.recipeStore.recipeCreateModalTriggered = true;
+                //this.$store.state.recipeStore.recipeCreateModalProjectId = this.recipeCreateModel.selectedProjectId;
+                //this.$store.state.recipeStore.recipeCreateModalChapterId = this.recipeCreateModel.selectedChapterId;
+
+                var payload = {
+                    createModalTriggered : true, 
+                    projectId : this.recipeCreateModel.selectedProjectId,
+                    chapterId : this.recipeCreateModel.selectedChapterId
+                };
+                
+                this.$store.commit('recipeStore/setRecipeCreateModal',payload);
+                console.log(this.$store.state.recipeStore.recipeCreateModalTriggered);
+
+                //hide the modal
                 this.$refs.recipecreatemodal.hide();
             },
             cancelButtonHandler() {
-                console.log('cancelled');
+                // console.log('cancelled');
+                //clear local and global values
                 this.resetRecipeCreateModel();
+                this.$store.commit('recipeStore/resetRecipeCreateModal');
                 this.$refs.recipecreatemodal.hide();
             },
             resetRecipeCreateModel () {
                 this.recipeCreateModel.selectedProjectId = '';
-                // this.recipeCreateModel.selectedChapter = 'Default Chapter';
                 this.recipeCreateModel.selectedChapterId = '';
                 console.log('recipeCreateModel is reset');
             }
         },
-        
+        computed : {
+
+        },
         watch : {                        
             'recipeCreateModel.selectedProjectId' (value) {                                
                 console.log(value);               

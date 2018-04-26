@@ -110,6 +110,8 @@
 
 <!--<script  src="./RecipeCopyModelModal.js">-->
 <script>
+    // import { mapMutations } from 'vuex';
+    
     export default {
         data() {
             return {
@@ -152,17 +154,23 @@
         },
         methods : {
             okButtonHandler () {
-                // console.log(this.recipeCopyModel.selectedCopyAction);   
-                // console.log(this.recipeCopyModel.selectedProjectId);   
-                // console.log(this.recipeCopyModel.selectedChapterId);   
-                // console.log(this.recipeCopyModel.selectedCopyNutritionCheck);   
-                
+                var payload = {
+                    copyModalTriggered : true, 
+                    copyAction : this.recipeCopyModel.selectedCopyAction,
+                    projectId : this.recipeCopyModel.selectedProjectId,
+                    chapterId : this.recipeCopyModel.selectedChapterId,
+                    recipeVersionNumber : '', //get from parent
+                    recipeLanguage : 'en'
+                };
+                this.$store.commit('recipeStore/setRecipeCopyModal',payload);
+
+                console.log(this.$store.state.recipeStore.recipeCopyModalTriggered);
                 this.$refs.recipecopymodal.hide();
             },
             cancelButtonHandler() {
                 console.log('cancelled');
                 this.resetRecipeCopyModel();
-
+                this.$store.commit('recipeStore/resetRecipeCopyModal');
                 this.$refs.recipecopymodal.hide();
             },
             resetRecipeCopyModel () {
