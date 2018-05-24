@@ -47,6 +47,10 @@
           <app-veeval></app-veeval>
         </b-tab>
         
+        <b-tab title="UIV typeahead">
+          <app-uiv-ta></app-uiv-ta>          
+        </b-tab>
+
         <!-- RMS  -->
         <b-tab title="RMS" active>
           <app-rms-recipepage></app-rms-recipepage>
@@ -66,6 +70,7 @@ import BVFooter from './components/bootstrapvue/BVFooter.vue';
 import bsvue from './components/bootstrapvue/BootstrapVueLearn.vue';
 import bvue from './components/bootstrap/BootstrapLearn.vue';
 import veeval from './components/veevalidate/VeeValidateLearn.vue';
+import uivta from './components/uivta/uivtaLearn.vue';
 
 //RMS 
 import RecipePage from './components/rms/RecipePage/RecipePage.vue';
@@ -82,8 +87,10 @@ export default {
     'app-bsvue' : bsvue,
     'app-bvue' : bvue,
     'app-veeval' : veeval,
+    'app-uiv-ta' : uivta,
     'app-rms-recipepage' : RecipePage,
     'app-bvfooter' : BVFooter
+    
   }
 }
 </script>

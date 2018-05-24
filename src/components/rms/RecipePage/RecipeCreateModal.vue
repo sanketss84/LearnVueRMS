@@ -5,20 +5,20 @@
         <b-modal id="recipecreatemodal"  ref="recipecreatemodal" size="lg" title="Create New Recipe" hide-footer>
             <div class="container">
                 <div class="form-group row">
-
                     <label class="col-3" for="modalproject" >Assign to Project</label>
-                    <select id="modalproject" class="form-control col-8" v-model="recipeCreateModel.selectedProjectId">
+                    <select v-validate="'required'" name="projectNumber" id="modalproject" class="form-control col-8" v-model="recipeCreateModel.selectedProjectId">
                         <option value="" selected disabled>Select Project (Project must already exist)</option>
                         <option v-for="project in recipeCreateModel.projects" :value="project.projectId" >{{project.projectName}}</option>
                     </select>
+                    <span class="text-danger">{{ errors.first('projectNumber') }}</span>
                 </div>
                 <div class="form-group row">
                     <label class="col-3" for="modalchapter" >Assign to Chapter</label>                    
-                    <select id="modalchapter" class="form-control col-8" v-model="recipeCreateModel.selectedChapterId" >     
+                    <select  v-validate="'required'" name="chapterNumber" id="modalchapter" class="form-control col-8" v-model="recipeCreateModel.selectedChapterId" >     
                         <option value="" selected disabled>Select Chapter</option>                   
                         <option v-for="chapter in recipeCreateModel.filteredChapters" :value="chapter.chapterId" >{{chapter.chapterName}}</option>
                     </select>
-
+                    <span class="text-danger">{{ errors.first('chapterNumber') }}</span>
                 </div>
             </div>
             <b-btn class="mt-3" @click="okButtonHandler">OK</b-btn>
@@ -64,7 +64,35 @@
             }
         },
         methods : {
-            okButtonHandler () {
+            okButtonHandler (evt) {
+                evt.preventDefault()
+
+                this.$validator.validateAll().then((result) => {
+                    if (result) {                    
+                        alert('Form Submitted!');
+                        this.$refs.recipecreatemodal.hide();
+                        return;
+                    }
+                    alert('Correct them errors!');
+                });
+
+                // if (this.recipeCreateModel.selectedProjectId == '' && this.recipeCreateModel.selectedChapterId == '') {
+                //     alert('Please specify mandatory fields');
+                // } else {
+                //     var payload = {
+                //         createModalTriggered : true, 
+                //         projectId : this.recipeCreateModel.selectedProjectId,
+                //         chapterId : this.recipeCreateModel.selectedChapterId
+                //     };
+                    
+                //     this.$store.commit('recipeStore/setRecipeCreateModal',payload);
+                //     console.log(this.$store.state.recipeStore.recipeCreateModalTriggered);
+
+                //     //hide the modal
+                //     this.$refs.recipecreatemodal.hide();
+
+                // }
+
                 // console.log(this.recipeCreateModel.selectedProjectId);   
                 // console.log(this.recipeCreateModel.selectedChapterId);
                 // console.log(this.$store.state.recipeStore.recipeCreateModalTriggered);
@@ -78,17 +106,7 @@
                 //this.$store.state.recipeStore.recipeCreateModalProjectId = this.recipeCreateModel.selectedProjectId;
                 //this.$store.state.recipeStore.recipeCreateModalChapterId = this.recipeCreateModel.selectedChapterId;
 
-                var payload = {
-                    createModalTriggered : true, 
-                    projectId : this.recipeCreateModel.selectedProjectId,
-                    chapterId : this.recipeCreateModel.selectedChapterId
-                };
                 
-                this.$store.commit('recipeStore/setRecipeCreateModal',payload);
-                console.log(this.$store.state.recipeStore.recipeCreateModalTriggered);
-
-                //hide the modal
-                this.$refs.recipecreatemodal.hide();
             },
             cancelButtonHandler() {
                 // console.log('cancelled');
@@ -101,6 +119,7 @@
                 this.recipeCreateModel.selectedProjectId = '';
                 this.recipeCreateModel.selectedChapterId = '';
                 console.log('recipeCreateModel is reset');
+                this.errors.clear();
             }
         },
         computed : {

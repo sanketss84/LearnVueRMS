@@ -8,6 +8,18 @@
                 <br>
                 <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
             </p>
+
+            <p>
+                <label for="modalproject" style="padding-right:2px;padding-left:5px;">Assign to Project</label>
+
+                <select  v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('project') }" name="project" id="modalproject" class="form-control" v-model="recipeCopyModel.selectedProjectNumber">
+                    <option value="" selected disabled>Select Project (Project must already exist)</option>
+                    <option v-for="project in recipeCopyModel.projects" v-bind:value="project.projectId" >{{project.projectName}}</option>
+                </select>
+                <!-- <br> -->
+                <span v-show="errors.has('project')" class="help is-danger">{{ errors.first('project') }}</span>
+            </p>
+
         </div>
 
     </div>
@@ -15,7 +27,19 @@
 
 <script>
 export default {    
+ data() {
+        return {
+            recipeCopyModel: {
+                selectedProject : '',                
+                projects: [
+                    { projectId: 'p1', projectName: 'project A' },
+                    { projectId: 'p2', projectName: 'project B' },
+                    { projectId: 'p3', projectName: 'project C' },
+                ],
 
+            }
+        }
+    },
 }
 </script>
 
