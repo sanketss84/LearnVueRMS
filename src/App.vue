@@ -56,6 +56,10 @@
           <app-rms-recipepage></app-rms-recipepage>
         </b-tab>
 
+        <b-tab title="RMS ViewRecipe">
+          <app-rms-viewrecipepage></app-rms-viewrecipepage>
+        </b-tab>
+
       </b-tabs>
     </b-card>    
     <app-bvfooter></app-bvfooter>
@@ -74,6 +78,7 @@ import uivta from './components/uivta/uivtaLearn.vue';
 
 //RMS 
 import RecipePage from './components/rms/RecipePage/RecipePage.vue';
+import ViewRecipePage from './components/rms/ViewRecipe/ViewRecipe.vue';
 
 export default {
   name: 'app',
@@ -89,6 +94,7 @@ export default {
     'app-veeval' : veeval,
     'app-uiv-ta' : uivta,
     'app-rms-recipepage' : RecipePage,
+    'app-rms-viewrecipepage' : ViewRecipePage,
     'app-bvfooter' : BVFooter
     
   }
